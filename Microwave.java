@@ -34,6 +34,10 @@ final class Microwave {
     * The amount of seconds in a minute.
     */
     public static final float SECONDS_IN_MINUTE = 60;
+    /**
+    * Constant created.
+    */
+    public static final float MAX_QUANTITY = 4;
 
     /**
     * Throw an exception IllegalStateException.
@@ -82,22 +86,22 @@ final class Microwave {
                 // Calculations
                 quantityMultiplier = (float) ((quantity + 1)
                     * getQuantityMultiplier);
-                if ("sub".equals(food) && quantity > 0 && quantity < 4) {
+                if ("sub".equals(food) && quantity > 0 && quantity < MAX_QUANTITY) {
                     minutes = (float) Math.floor(SUB_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
                     seconds = (SUB_TIME * quantityMultiplier
                         / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
-                } else if ("pizza".equals(food) && quantity > 0 && quantity < 4) {
+                } else if ("pizza".equals(food) && quantity > 0 && quantity < MAX_QUANTITY) {
                     minutes = (float) Math.floor(PIZZA_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
                     seconds = (PIZZA_TIME * quantityMultiplier
                         / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
-                } else if ("soup".equals(food) && quantity > 0 && quantity < 4) {
+                } else if ("soup".equals(food) && quantity > 0 && quantity < MAX_QUANTITY) {
                     minutes = (float) Math.floor(SOUP_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
                     seconds = (SOUP_TIME * quantityMultiplier
                         / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
-                } else if (quantity > 0 && quantity < 4) {
+                } else if (quantity > 0 && quantity < MAX_QUANTITY) {
                     System.out.println("Please enter one of the three foods.");
                     break;
                 } else {
