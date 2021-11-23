@@ -56,8 +56,8 @@ final class Microwave {
         String food;
         double quantity;
         float quantityMultiplier;
-        float Minutes = 0;
-        float Seconds = 0;
+        float minutes = 0;
+        float seconds = 0;
         // This is simply for the loop.
         float program = 1;
         final double getQuantityMultiplier = 0.5;
@@ -75,32 +75,34 @@ final class Microwave {
                 // Ask for inputs
                 System.out.println("Are you heating a sub, pizza, or soup?: ");
                 food = myObjOne.nextLine();
-                System.out.println("How many " + food + "(s) are you heating?(max:3): ");
+                System.out.println("How many "
+                    + food + "(s) are you heating?(max:3): ");
                 quantity = myObjTwo.nextFloat();
 
                 // Calculations
-                quantityMultiplier = (float) ((quantity + 1) * getQuantityMultiplier);
+                quantityMultiplier = (float) ((quantity + 1)
+                    * getQuantityMultiplier);
                 if ("sub".equals(food)) {
-                    Minutes = (float) Math.floor(SUB_TIME
+                    minutes = (float) Math.floor(SUB_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
-                    Seconds = (SUB_TIME * quantityMultiplier
-                        / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
+                    seconds = (SUB_TIME * quantityMultiplier
+                        / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
                 } else if ("pizza".equals(food)) {
-                    Minutes = (float) Math.floor(PIZZA_TIME
+                    minutes = (float) Math.floor(PIZZA_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
-                    Seconds = (PIZZA_TIME * quantityMultiplier
-                        / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
+                    seconds = (PIZZA_TIME * quantityMultiplier
+                        / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
                 } else if ("soup".equals(food)) {
-                    Minutes = (float) Math.floor(SOUP_TIME
+                    minutes = (float) Math.floor(SOUP_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
-                    Seconds = (SOUP_TIME * quantityMultiplier
-                        / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
+                    seconds = (SOUP_TIME * quantityMultiplier
+                        / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
                 } else {
                     System.out.println("Please enter one of the three foods.");
                     break;
                 }
-                System.out.println("It will take " + Minutes
-                    + " minutes and " + Seconds + " seconds to heat.");
+                System.out.println("It will take " + minutes
+                    + " minutes and " + seconds + " seconds to heat.");
                 program = 2;
 
             } while (program == 1);
