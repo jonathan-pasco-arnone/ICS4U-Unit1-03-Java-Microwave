@@ -19,12 +19,21 @@ final class Microwave {
 
     /**
     * Constants.
+    * The amount of seconds it takes to heat a sub.
     */
-    // The amount of seconds it takes for each menu item to reheat.
-    public static final float subTime = 60;
-    public static final float pizzaTime = 45;
-    public static final float soupTime = 95;
-    public static final float secondsInMinute = 60;
+    public static final float SUB_TIME = 60;
+    /**
+    * The amount of seconds it takes to heat pizza.
+    */
+    public static final float PIZZA_TIME = 45;
+    /**
+    * The amount of seconds it takes to heat soup.
+    */
+    public static final float SOUP_TIME = 95;
+    /**
+    * The amount of seconds in a minute.
+    */
+    public static final float SECONDS_IN_MINUTE = 60;
 
     /**
     * Throw an exception IllegalStateException.
@@ -44,12 +53,15 @@ final class Microwave {
     */
     public static void main(final String[] args) {
         // Variables
-        final String food;
-        final float quantity;
+        String food;
+        double quantity;
         float quantityMultiplier;
         float Minutes = 0;
-	float Seconds = 0;
-	// Create scanner objects for inputs.
+        float Seconds = 0;
+        // This is simply for the loop.
+        float program = 1;
+        final double getQuantityMultiplier = 0.5;
+        // Create scanner objects for inputs.
         final Scanner myObjOne = new Scanner(System.in);
         final Scanner myObjTwo = new Scanner(System.in);
         // Ask for inputs
@@ -59,20 +71,34 @@ final class Microwave {
         * This accepts an inputted and tests it.
         */
         try {
-            // Ask for inputs
-            System.out.println("Are you heating a sub, pizza, or soup?: ");
-            food = myObjOne.nextLine();
-            System.out.println("How many " + food + "(s) are you heating?(max:3): ");
-            quantity = myObjTwo.nextFloat();
+            do {
+                // Ask for inputs
+                System.out.println("Are you heating a sub, pizza, or soup?: ");
+                food = myObjOne.nextLine();
+                System.out.println("How many " + food + "(s) are you heating?(max:3): ");
+                quantity = myObjTwo.nextFloat();
 
-            // Calculations
-            quantityMultiplier = Math.floor((quantity + 1) * 0.5);
-            if (food == "sub") {
-                Minutes = subTime * quantityMultiplier / secondsInMinute;
-                Seconds = (subTime * quantityMultiplier / secondsInMinute - Minutes) * 60;
-            }
-            System.out.println("It will take " + Minutes
-                + " minutes and " + Seconds + " seconds to heat.");
+                // Calculations
+                quantityMultiplier = (float) ((quantity + 1) * getQuantityMultiplier);
+                if ("sub".equals(food)) {
+                    Minutes = (float) Math.floor(SUB_TIME * quantityMultiplier / SECONDS_IN_MINUTE);
+                    Seconds = (SUB_TIME * quantityMultiplier / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
+                } else if ("pizza".equals(food)) {
+                    Minutes = (float) Math.floor(PIZZA_TIME * quantityMultiplier / SECONDS_IN_MINUTE);
+                    Seconds = (PIZZA_TIME * quantityMultiplier / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
+                } else if ("soup".equals(food)) {
+                    Minutes = (float) Math.floor(SOUP_TIME * quantityMultiplier / SECONDS_IN_MINUTE);
+                    Seconds = (SOUP_TIME * quantityMultiplier / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
+                } else {
+                    System.out.println("Please enter one of the three foods.");
+                    break;
+                }
+                System.out.println("It will take " + Minutes
+                    + " minutes and " + Seconds + " seconds to heat.");
+                program = 2;
+
+
+            } while(program == 1);
         } catch (java.util.InputMismatchException ex) {
             System.out.println("That was not a valid input");
         } finally {
