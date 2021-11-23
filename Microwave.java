@@ -82,24 +82,28 @@ final class Microwave {
                 // Calculations
                 quantityMultiplier = (float) ((quantity + 1)
                     * getQuantityMultiplier);
-                if ("sub".equals(food)) {
+                if ("sub".equals(food) && quantity > 0 && quantity < 4) {
                     minutes = (float) Math.floor(SUB_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
                     seconds = (SUB_TIME * quantityMultiplier
                         / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
-                } else if ("pizza".equals(food)) {
+                } else if ("pizza".equals(food) && quantity > 0 && quantity < 4) {
                     minutes = (float) Math.floor(PIZZA_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
                     seconds = (PIZZA_TIME * quantityMultiplier
                         / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
-                } else if ("soup".equals(food)) {
+                } else if ("soup".equals(food) && quantity > 0 && quantity < 4) {
                     minutes = (float) Math.floor(SOUP_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
                     seconds = (SOUP_TIME * quantityMultiplier
                         / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
-                } else {
+                } else if (quantity > 0 && quantity < 4) {
                     System.out.println("Please enter one of the three foods.");
                     break;
+                } else {
+                  System.out.println("Pleas enter one of the"
+                      + " three options for quantity.");
+                  break;
                 }
                 System.out.println("It will take " + minutes
                     + " minutes and " + seconds + " seconds to heat.");
