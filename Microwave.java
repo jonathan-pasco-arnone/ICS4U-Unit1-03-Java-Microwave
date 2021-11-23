@@ -81,14 +81,20 @@ final class Microwave {
                 // Calculations
                 quantityMultiplier = (float) ((quantity + 1) * getQuantityMultiplier);
                 if ("sub".equals(food)) {
-                    Minutes = (float) Math.floor(SUB_TIME * quantityMultiplier / SECONDS_IN_MINUTE);
-                    Seconds = (SUB_TIME * quantityMultiplier / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
+                    Minutes = (float) Math.floor(SUB_TIME
+                        * quantityMultiplier / SECONDS_IN_MINUTE);
+                    Seconds = (SUB_TIME * quantityMultiplier
+                        / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
                 } else if ("pizza".equals(food)) {
-                    Minutes = (float) Math.floor(PIZZA_TIME * quantityMultiplier / SECONDS_IN_MINUTE);
-                    Seconds = (PIZZA_TIME * quantityMultiplier / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
+                    Minutes = (float) Math.floor(PIZZA_TIME
+                        * quantityMultiplier / SECONDS_IN_MINUTE);
+                    Seconds = (PIZZA_TIME * quantityMultiplier
+                        / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
                 } else if ("soup".equals(food)) {
-                    Minutes = (float) Math.floor(SOUP_TIME * quantityMultiplier / SECONDS_IN_MINUTE);
-                    Seconds = (SOUP_TIME * quantityMultiplier / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
+                    Minutes = (float) Math.floor(SOUP_TIME
+                        * quantityMultiplier / SECONDS_IN_MINUTE);
+                    Seconds = (SOUP_TIME * quantityMultiplier
+                        / SECONDS_IN_MINUTE - Minutes) * SECONDS_IN_MINUTE;
                 } else {
                     System.out.println("Please enter one of the three foods.");
                     break;
@@ -97,8 +103,7 @@ final class Microwave {
                     + " minutes and " + Seconds + " seconds to heat.");
                 program = 2;
 
-
-            } while(program == 1);
+            } while (program == 1);
         } catch (java.util.InputMismatchException ex) {
             System.out.println("That was not a valid input");
         } finally {
