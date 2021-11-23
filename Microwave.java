@@ -84,17 +84,20 @@ final class Microwave {
                 // Calculations
                 quantityMultiplier = (float) ((quantity + 1)
                     * getQuantityMultiplier);
-                if ("sub".equals(food) && quantity > 0 && quantity < MAX_QUANTITY) {
+                if ("sub".equals(food)
+                    && quantity > 0 && quantity < MAX_QUANTITY) {
                     minutes = (float) Math.floor(SUB_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
                     seconds = (SUB_TIME * quantityMultiplier
                         / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
-                } else if ("pizza".equals(food) && quantity > 0 && quantity < MAX_QUANTITY) {
+                } else if ("pizza".equals(food)
+                    && quantity > 0 && quantity < MAX_QUANTITY) {
                     minutes = (float) Math.floor(PIZZA_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
                     seconds = (PIZZA_TIME * quantityMultiplier
                         / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
-                } else if ("soup".equals(food) && quantity > 0 && quantity < MAX_QUANTITY) {
+                } else if ("soup".equals(food)
+                    && quantity > 0 && quantity < MAX_QUANTITY) {
                     minutes = (float) Math.floor(SOUP_TIME
                         * quantityMultiplier / SECONDS_IN_MINUTE);
                     seconds = (SOUP_TIME * quantityMultiplier
