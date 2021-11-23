@@ -62,8 +62,6 @@ final class Microwave {
         float quantityMultiplier;
         float minutes = 0;
         float seconds = 0;
-        // This is simply for the loop.
-        float program = 1;
         final double getQuantityMultiplier = 0.5;
         // Create scanner objects for inputs.
         final Scanner myObjOne = new Scanner(System.in);
@@ -102,20 +100,15 @@ final class Microwave {
                     seconds = (SOUP_TIME * quantityMultiplier
                         / SECONDS_IN_MINUTE - minutes) * SECONDS_IN_MINUTE;
                 } else if (quantity > 0 && quantity < MAX_QUANTITY) {
-                    System.out.println("Please enter one of the three foods.");
+                    System.out.println("That was not a valid input");
                     break;
-                } else {
-                  System.out.println("Pleas enter one of the"
-                      + " three options for quantity.");
-                  break;
                 }
                 System.out.println("It will take " + minutes
                     + " minutes and " + seconds + " seconds to heat.");
-                program = 2;
-
-            } while (program == 1);
+                break;
+            } while (true);
         } catch (java.util.InputMismatchException ex) {
-            System.out.println("That was not a valid input");
+            System.out.println("That was not a valid input ");
         } finally {
             System.out.println("\nDone.");
         }
