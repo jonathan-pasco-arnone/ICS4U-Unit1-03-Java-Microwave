@@ -29,7 +29,7 @@ final class Microwave {
     /**
     * The amount of seconds it takes to heat soup.
     */
-    public static final float SOUP_TIME = 95;
+    public static final float SOUP_TIME = 105;
     /**
     * The amount of seconds in a minute.
     */
